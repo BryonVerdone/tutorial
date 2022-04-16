@@ -1,17 +1,36 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+//CSS
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function BookList() {
+  return (
+    <section className='booklist'>
+      <Book />
+    </section>
+  );
+}
+const author = 'Amelia Hepworth';
+const Book = () => {
+  const title = 'I Love You to the Moon and Back';
+  return (
+    <article className='book'>
+      <img
+        style={{ width: 300 }}
+        src='https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL604_SR604,400_.jpg'
+        alt=''
+      />
+      <h1>{title.toUpperCase()}</h1>
+      <h4>{author}</h4>
+    </article>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// const Greeting = () => {
+//   return (
+//     React,
+//     createElement('h1', {}, React.createElement('div', {}, 'hello world'))
+//   );
+// };
+
+ReactDOM.render(<BookList />, document.getElementById('root'));
